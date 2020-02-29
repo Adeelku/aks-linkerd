@@ -58,6 +58,14 @@ kubectl get -n emojivoto deploy -o yaml \
 
 linkerd -n emojivoto check --proxy
 
+## Check TLS enabled
+
+```bash
+linkerd -n emojivoto edges deployment
+linkerd -n emojivoto tap deploy
+kubectl sniff web-744588c478-7jxzf -n emojivoto -f 'tcp and host not 127.0.0.1'
+```
+
 
 
 
